@@ -32,7 +32,7 @@ Key achievements include:
   {
     name: "Kishor Kumar L.M",
     role: "Chief Operating Officer",
-    image: "/k1.png",
+    image: "/k2.png",
     linkedin: "/linkedin.svg",
     description: `Kishor Kumar L.M serves as the Chief Operating Officer (COO) at apuploadportals.com, bringing extensive experience in operations management, process optimization, and technology-driven service delivery. With a strong track record of driving efficiency and productivity, Kishor ensures seamless execution of complex projects while integrating modern technologies into operations.
 
