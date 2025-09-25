@@ -219,7 +219,7 @@ export default function HomePage() {
 <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 flex flex-row gap-3 sm:gap-4">
   {/* Request Demo */}
   <Link href="/contactus">
-    <button className="flex items-center justify-center gap-2 border border-indigo-600 text-indigo-700 px-3 sm:px-5 py-2 rounded-lg shadow-sm hover:bg-indigo-50 transition text-xs sm:text-base">
+    <button className="flex items-center justify-center gap-2 bg-indigo-600 text-white px-3 sm:px-5 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition text-xs sm:text-base">
       <Calendar className="w-5 h-5" />
       Request Demo
     </button>
@@ -228,13 +228,12 @@ export default function HomePage() {
   {/* WhatsApp */}
   <button
     onClick={() => window.open(waLink, "_blank")}
-    className="flex items-center justify-center gap-2 border border-green-500 text-green-700 px-3 sm:px-5 py-2 rounded-lg shadow-sm hover:bg-green-50 transition text-xs sm:text-base"
+    className="flex items-center justify-center gap-2 bg-green-500 text-white px-3 sm:px-5 py-2 rounded-lg shadow-md hover:bg-green-600 transition text-xs sm:text-base"
   >
     <FaWhatsapp className="w-5 h-5" />
     WhatsApp
   </button>
 </div>
-
           </div>
         </div>
       </section>
