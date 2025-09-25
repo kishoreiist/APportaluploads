@@ -21,7 +21,7 @@ export default function InvoicetrackingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="relative w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden rounded-xl shadow-2xl">
             <Image
-              src="/tracking.png"
+              src="/Tracking.png"
               alt="Dashboard Preview"
               fill
               className="object-cover rounded-xl"
