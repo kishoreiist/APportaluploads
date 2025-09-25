@@ -154,8 +154,7 @@ export default function ContactUsPage() {
 <section className="relative mb-16">
   <div className="container max-w-6xl mx-auto px-6 relative rounded-xl shadow-lg overflow-hidden">
     <Image
-      // src="/girl.jpg"
-         src="/App.png"
+         src="/girl.jpg"
       alt="Contact Background"
       fill
       priority
