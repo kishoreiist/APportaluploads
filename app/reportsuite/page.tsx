@@ -613,20 +613,20 @@ return (
     sections.map(section =>
       section.subheadings.map(sub =>
         activeSubId === sub.id && (
-          <div className="w-full flex justify-center">
-            <div className="w-[900px]"> {/* fixed width wrapper */}
+          <div key={sub.id} className="w-full flex justify-center">
+            <div className="w-full max-w-[1000px]">
               <motion.div
-                key={sub.id}
-                initial={{ opacity: 0, scale: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="bg-white w-full h-[300px] rounded-xl shadow-lg border border-gray-200 p-4 origin-center overflow-hidden flex flex-col"
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="bg-white w-full rounded-xl shadow-lg border border-gray-200 p-4 origin-center flex flex-col"
               >
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   {sub.title}
                 </h2>
-                <div className="flex-1 overflow-auto">
+                {/* ✅ Scrollable table wrapper */}
+                <div className="flex-1 max-h-[450px] overflow-auto rounded-lg">
                   {sub.table}
                 </div>
               </motion.div>
@@ -637,26 +637,25 @@ return (
     )
   ) : (
     <div className="w-full flex justify-center">
-  <motion.div
-    key="placeholder"
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{ opacity: 1, scale: 1 }}
-    exit={{ opacity: 0, scale: 0 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
-    className="bg-white w-full max-w-[1000px] h-[350px] rounded-xl shadow-lg border border-gray-200 p-4 flex items-center justify-center origin-center overflow-hidden"
-  >
-    <video
-      src="/placeholder-video.mp4"
-      autoPlay
-      muted
-      loop
-      className="w-full h-full object-cover rounded-lg"
-    />
-  </motion.div>
-</div>
+      <motion.div
+        key="placeholder"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="bg-white w-full max-w-[1000px] rounded-xl shadow-lg border border-gray-200 p-4 flex items-center justify-center origin-center"
+      >
+        <video
+          src="/placeholder-video.mp4"
+          autoPlay
+          muted
+          loop
+          className="w-full h-[400px] object-cover rounded-lg"
+        />
+      </motion.div>
+    </div>
   )}
 </AnimatePresence>
-
 
 
       </div>
