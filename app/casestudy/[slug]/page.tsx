@@ -61,25 +61,24 @@
 //     </main>
 //   );
 // }
-// app/casestudy/[slug]/page.tsx
 import { caseStudies, CaseStudy } from "../../data/casestudies";
 import Navbar from "../../Navbar";
 import Image from "next/image";
 import Markdown from "react-markdown";
 import Link from "next/link";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import React from "react";
 
-// ✅ Dynamic browser tab title and meta description
+// ✅ Default Metadata
 export const metadata: Metadata = {
   title: "APPortal Uploads :: Case Study",
   description:
     "Read detailed case studies about APPU Solutions and our clients’ success stories.",
 };
 
-// Server Component
-export default function CaseStudyDetails(props: any) {
-  const { slug } = props.params;
+// ✅ Server Component
+export default function CaseStudyDetails({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const study: CaseStudy | undefined = caseStudies.find((s) => s.slug === slug);
 
   if (!study) {
@@ -94,29 +93,32 @@ export default function CaseStudyDetails(props: any) {
     <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <Navbar />
 
-      {/* Banner Image */}
+      {/* ✅ Banner Image */}
       <section className="relative w-full px-6 py-10">
-        <div className="relative w-full max-w-7xl mx-auto h-[250px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-2xl shadow-2xl">
+        <div className="relative w-full max-w-7xl mx-auto h-[220px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-2xl shadow-2xl">
           <Image
             src={study.imageUrl}
             alt={study.title}
             fill
+            sizes="(max-width: 768px) 100vw, 1200px"
             className="object-cover"
             priority
           />
         </div>
       </section>
 
-      {/* Content */}
+      {/* ✅ Content */}
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-900">{study.title}</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-900">
+          {study.title}
+        </h1>
         <p className="text-lg text-gray-600 mb-8">{study.description}</p>
 
-        <article className="prose prose-lg max-w-none mb-12">
+        <article className="prose prose-lg dark:prose-invert max-w-none mb-12">
           <Markdown>{study.content}</Markdown>
         </article>
 
-        {/* Back Button */}
+        {/* ✅ Back Button */}
         <div className="mt-12 text-center">
           <Link
             href="/casestudy"
