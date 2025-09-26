@@ -79,7 +79,8 @@ export default function AboutUsPage() {
                 alt="ISO/IEC 27001:2022 Certificate"
                 width={400}
                 height={400}
-                className="object-contain max-h-[500px] w-auto rounded shadow"
+                // className="object-contain max-h-[500px] w-auto rounded shadow"
+                 className="object-contain max-h-[500px] w-full sm:w-auto rounded shadow"
               />
             </div>
           </div>

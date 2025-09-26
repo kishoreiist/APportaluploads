@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Navbar from "../Navbar";
 import ChatBox from "../components/chatbox";
@@ -18,28 +17,31 @@ export default function InvoicetrackingPage() {
       <Navbar />
 
       {/* ✅ Hero Section */}
-      <section className="invoice-hero py-16 px-6">
-        <div className="container max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl shadow-2xl">
+      <section className="py-10 sm:py-16 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden rounded-xl shadow-2xl">
             <Image
-              src="/tracking.png"
+              src="/Tracking.png"
               alt="Dashboard Preview"
               fill
               className="object-cover rounded-xl"
               priority
+              sizes="(max-width: 768px) 100vw,
+                     (max-width: 1200px) 80vw,
+                     1200px"
             />
           </div>
         </div>
       </section>
 
       {/* ✅ Glass Section */}
-      <div className="container max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-stretch gap-6 pb-12 mb-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-stretch gap-6 pb-12">
         {/* Left: Text */}
-        <div className="flex-1 min-h-[250px] p-10 rounded-2xl shadow-md bg-white border-l-4 border-amber-400 flex flex-col justify-center text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+        <div className="flex-1 min-h-[250px] p-6 sm:p-10 rounded-2xl shadow-md bg-white border-l-4 border-amber-400 flex flex-col justify-center text-center lg:text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
             Invoice <span className="text-amber-400">Tracking</span> System
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
             The Invoice Tracking System helps organizations streamline and automate
             the flow of invoices across Accounts Payable (AP) and Accounts Receivable
             (AR) departments. It ensures invoices are accurately received, validated,
@@ -49,15 +51,21 @@ export default function InvoicetrackingPage() {
         </div>
 
         {/* Right: Image */}
-        <div className="flex-1 min-h-[100px] rounded-2xl shadow-md bg-white border-t-4 border-amber-400 flex justify-center items-center">
-          <img
+        <div className="flex-1 min-h-[200px] rounded-2xl shadow-md bg-white border-t-4 border-amber-400 flex justify-center items-center">
+          <Image
             src="/image.png"
             alt="Process Illustration"
-            className="w-full h-full object-cover rounded-lg"
+            width={600}
+            height={400}
+            className="w-full h-auto rounded-lg object-cover"
+            sizes="(max-width: 768px) 100vw,
+                   (max-width: 1200px) 50vw,
+                   600px"
           />
         </div>
-      </div>
+      </section>
 
+      {/* ✅ Chat Widget */}
       <ChatBox />
     </main>
   );

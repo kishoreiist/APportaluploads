@@ -1,129 +1,76 @@
-// // app/casestudy/[slug]/page.tsx
-// import { caseStudies } from "../../data/casestudies";
-// import Navbar from "../../Navbar";
-// import Image from "next/image";
-// import Markdown from "react-markdown";
-// import Link from "next/link";
-// import { Metadata } from "next";
-
-// // ✅ Dynamic browser tab title and meta description
-
-
-// export default function CaseStudyDetails({ params }: { params: { slug: string } }) {
-//   const study = caseStudies.find((s) => s.slug === params.slug);
-
-//   if (!study) {
-//     return (
-//       <main className="min-h-screen flex items-center justify-center bg-gray-50">
-//         <h1 className="text-2xl font-bold text-gray-700">
-//           Case Study Not Found
-//         </h1>
-//       </main>
-//     );
-//   }
-
-//   return (
-//     <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
-//       <Navbar />
-
-//       <section className="relative w-full px-6 py-10">
-//         <div className="relative w-full max-w-7xl mx-auto h-[250px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-2xl shadow-2xl">
-//           <Image
-//             src={study.imageUrl}
-//             alt={study.title}
-//             fill
-//             className="object-cover"
-//             priority
-//           />
-//         </div>
-//       </section>
-
-//       <section className="max-w-7xl mx-auto px-6 py-12">
-//         <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-900">
-//           {study.title}
-//         </h1>
-//         <p className="text-lg text-gray-600 mb-8">{study.description}</p>
-
-//         <article className="prose prose-lg max-w-none mb-12">
-//           <Markdown>{study.content}</Markdown>
-//         </article>
-
-//         {/* ✅ Back to Case Studies Button */}
-//         <div className="mt-12 text-center">
-//           <Link
-//             href="/casestudy" // ✅ matches app/casestudy/page.tsx
-//             className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
-//           >
-//             ← Back to Case Studies
-//           </Link>
-//         </div>
-//       </section>
-//     </main>
-//   );
-// }
-// app/casestudy/[slug]/page.tsx
-import { caseStudies, CaseStudy } from "../../data/casestudies";
+// app/casestudy/page.tsx
+import { caseStudies } from "../../data/casestudies";
+import Link from "next/link";
 import Navbar from "../../Navbar";
 import Image from "next/image";
-import Markdown from "react-markdown";
-import Link from "next/link";
 import { Metadata } from "next";
-import React from "react";
 
-// ✅ Dynamic browser tab title and meta description
 export const metadata: Metadata = {
-  title: "APPortal Uploads :: Case Study",
+  title: "APPortalUploads :: Our Case Studies ",
   description:
-    "Read detailed case studies about APPU Solutions and our clients’ success stories.",
+    "Read expert insights, tips, and guides on APPortal Uploads. Stay updated with our blogs.",
 };
 
-// Server Component
-export default function CaseStudyDetails(props: any) {
-  const { slug } = props.params;
-  const study: CaseStudy | undefined = caseStudies.find((s) => s.slug === slug);
-
-  if (!study) {
-    return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-50">
-        <h1 className="text-2xl font-bold text-gray-700">Case Study Not Found</h1>
-      </main>
-    );
-  }
-
+export default function CaseStudyPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <Navbar />
 
-      {/* Banner Image */}
-      <section className="relative w-full px-6 py-10">
-        <div className="relative w-full max-w-7xl mx-auto h-[250px] sm:h-[320px] md:h-[420px] overflow-hidden rounded-2xl shadow-2xl">
+      {/* ✅ Hero Section */}
+      <section className="relative w-full px-4 sm:px-6 py-8 sm:py-10">
+        <div className="relative w-full max-w-7xl mx-auto h-[220px] sm:h-[300px] md:h-[420px] overflow-hidden rounded-2xl shadow-2xl">
           <Image
-            src={study.imageUrl}
-            alt={study.title}
+            src="/case.png"
+            alt="Case Studies Banner"
             fill
             className="object-cover"
             priority
           />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-3 sm:px-6">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4">
+              Case Studies
+            </h1>
+            <p className="text-sm sm:text-base md:text-xl max-w-2xl">
+              Discover how Apportal Uploads helps businesses streamline
+              operations, improve efficiency, and stay compliant.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-900">{study.title}</h1>
-        <p className="text-lg text-gray-600 mb-8">{study.description}</p>
-
-        <article className="prose prose-lg max-w-none mb-12">
-          <Markdown>{study.content}</Markdown>
-        </article>
-
-        {/* Back Button */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/casestudy"
-            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
-          >
-            ← Back to Case Studies
-          </Link>
+      {/* ✅ Case Studies Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {caseStudies.map((study) => (
+            <div
+              key={study.slug}
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
+            >
+              <div className="w-full h-48 sm:h-56 md:h-64 relative">
+                <Image
+                  src={study.imageUrl}
+                  alt={study.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-5 sm:p-6">
+                <h2 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">
+                  {study.title}
+                </h2>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                  {study.description}
+                </p>
+                <Link
+                  href={`/casestudy/${study.slug}`}
+                  className="text-indigo-600 font-medium flex items-center group hover:underline"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
