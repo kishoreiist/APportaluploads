@@ -117,7 +117,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-700 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+      <div className="max-w-7xl mx-auto px-6 pt-10 pb-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
         
         {/* 1️⃣ Logo */}
         <div className="flex justify-center md:justify-start items-center">
@@ -138,23 +138,23 @@ export default function Footer() {
           <h4 className="text-sm font-semibold text-gray-900 mb-3">New to Apportal?</h4>
           <ul className="space-y-3 text-sm">
             <li>
-              <Link href="/Aboutus" className="hover:text-blue-600">
-                Aboutus
-              </Link>
-            </li>
-            <li>
               <Link href="/Whywe" className="hover:text-blue-600">
                 Why We
               </Link>
             </li>
             <li>
-              <Link href="/culture" className="hover:text-blue-600">
-                Culture
+              <Link href="/Aboutus" className="hover:text-blue-600">
+                Aboutus
               </Link>
             </li>
             <li>
               <Link href="/leadership" className="hover:text-blue-600">
                 Leadership
+              </Link>
+            </li>
+            <li>
+              <Link href="/culture" className="hover:text-blue-600">
+                culture
               </Link>
             </li>
           </ul>
