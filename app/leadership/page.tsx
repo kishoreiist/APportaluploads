@@ -215,7 +215,7 @@ const leaders: Leader[] = [
     image: "/rm.png",
     linkedin: "/linkedin.svg",
     isCEO: true,
-    description: `With over 37 years of experience in document imaging and indexing services, Ram N Ram Murthy has consistently delivered innovative, cost-effective, and high-quality solutions. Over the last 15 years, we have improved organizational productivity by more than 300%, driven by technology adoption and process excellence.
+    description: `With over 37+ years of experience in document imaging and indexing services, Ram N Ram Murthy has consistently delivered innovative, cost-effective, and high-quality solutions. Over the last 15 years, we have improved organizational productivity by more than 300%, driven by technology adoption and process excellence.
 
 He specializes in blending traditional document management expertise with modern AI, Machine Learning, and automation technologies.
 
@@ -238,7 +238,7 @@ Under his leadership, apuploadportals.com has implemented AI-powered automation 
 Specialties:
 Operations Management | AI & Automation | .NET Development | SaaS Solutions | Document Management | Workflow Optimization | Team Leadership | Process Excellence | AP Workflow
 
-Kishor Kumar L.M is committed to helping businesses achieve operational efficiency and digital transformation through innovative technology and streamlined processes.`,
+He is committed to helping businesses achieve operational efficiency and digital transformation through innovative technology and streamlined processes.`,
   },
   {
     name: "Mohan Arumugam",
@@ -257,7 +257,7 @@ With a passion for innovation, Mohan has been instrumental in:
 Specialties:
 AI/ML & Analytics | .NET & SharePoint | Python | ERP Integration | Cloud Solutions | Power Platform | Custom Development | Document Imaging & Indexing | EIPP | AP Workflow
 
-Mohan’s mission is to help organizations work smarter, faster, and more efficiently by combining AI innovation with practical enterprise technology solutions.`,
+He is on a mission to help organizations work smarter, faster, and more efficiently by combining AI innovation with practical enterprise technology solutions.`,
   },
 ];
 
@@ -276,7 +276,7 @@ export default function LeadershipPage() {
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-12">
           <div className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl shadow-2xl flex items-center justify-center">
             <img
-              src="/leadership1.jpg"
+              src="/leadershipimg.png"
               alt="Leadership Team Banner"
               className="min-w-full min-h-full object-cover rounded-xl"
             />
@@ -355,7 +355,7 @@ export default function LeadershipPage() {
 
       {/* Popup Modal */}
       {selectedLeader && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-50 p-4">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-[95vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto p-6 relative">
             <button
               onClick={() => setSelectedLeader(null)}
