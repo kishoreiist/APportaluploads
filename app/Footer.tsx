@@ -142,11 +142,7 @@ export default function Footer() {
                 About
               </Link>
             </li>
-            <li>
-              <Link href="/platform" className="hover:text-blue-600">
-                Platform
-              </Link>
-            </li>
+        
             <li>
               <Link href="/leadership" className="hover:text-blue-600">
                 Leadership
