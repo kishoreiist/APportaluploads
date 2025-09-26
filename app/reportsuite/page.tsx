@@ -685,23 +685,25 @@ return (
               )
             ) : (
               // Placeholder for when no subheading is selected
-              <motion.div
-                key="placeholder"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="bg-white w-full min-h-[350px] rounded-xl shadow-lg border border-gray-200 p-4 flex items-center justify-center origin-top-left overflow-hidden"
-              >
-                {/* Note: /placeholder-video.mp4 must exist in your public folder */}
-                <video
-                  src="/placeholder-video.mp4" 
-                  autoPlay
-                  muted
-                  loop
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </motion.div>
+<motion.div
+  key="placeholder"
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  exit={{ opacity: 0, scale: 0.8 }}
+  transition={{ duration: 0.4, ease: "easeOut" }}
+  className="bg-white w-full h-[250px] lg:h-[280px] xl:h-[300px] rounded-xl shadow-lg border border-gray-200 p-2 flex items-center justify-center origin-top-left overflow-hidden"
+>
+  <video
+    src="/placeholder-video.mp4"
+    autoPlay
+    muted
+    loop
+    className="w-full h-full object-cover rounded-lg"
+  />
+</motion.div>
+
+
+
             )}
           </AnimatePresence>
         </div>
