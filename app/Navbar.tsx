@@ -1,37 +1,35 @@
-
-
 "use client";
-
+ 
 import React, { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronRight, X } from "lucide-react";
-
+ 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null); // desktop simple dropdowns
   const [activeMenu, setActiveMenu] = useState<string | null>(null); // desktop mega menu hover
   const [mobileOpen, setMobileOpen] = useState(false); // show mobile menu
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false); // show solutions inside mobile
   const [mobileActiveSolutions, setMobileActiveSolutions] = useState<string | null>(null); // which solutions group is open on mobile
-
+ 
   const toggleDropdown = (menu: string) => {
     setOpenDropdown((prev) => (prev === menu ? null : menu));
   };
-
+ 
   const toggleMobileSolutions = () => {
     setMobileSolutionsOpen((p) => !p);
     setMobileActiveSolutions(null);
   };
-
+ 
   const toggleMobileSolutionsGroup = (group: string) =>
     setMobileActiveSolutions((prev) => (prev === group ? null : group));
-
+ 
   const closeMobile = () => {
     setMobileOpen(false);
     setMobileSolutionsOpen(false);
     setMobileActiveSolutions(null);
     setOpenDropdown(null);
   };
-
+ 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -39,7 +37,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center" onClick={closeMobile}>
           <img src="/logo.svg" alt="Apportaluploads Logo" className="h-16 w-auto" />
         </Link>
-
+ 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center space-x-8 font-medium text-gray-700">
           {/* Solutions Flyout (desktop unchanged) */}
@@ -47,10 +45,10 @@ export default function Navbar() {
             <span className="block px-4 py-2 cursor-pointer hover:text-indigo-600 transition-colors duration-200">
               Solutions
             </span>
-
+ 
             <div
-              className="absolute top-full left-0 flex bg-white shadow-2xl rounded-xl 
-                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 
+              className="absolute top-full left-0 flex bg-white shadow-2xl rounded-xl
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
                         invisible group-hover:visible transition-all duration-300 z-50"
             >
               {/* Headings Column */}
@@ -89,7 +87,7 @@ export default function Navbar() {
                   Additional Enhancements <ChevronRight className="w-4 h-4" />
                 </li>
               </ul>
-
+ 
               {/* Submenus */}
               <div className="min-w-[500px] p-6">
                 {activeMenu === "industry" && (
@@ -104,7 +102,7 @@ export default function Navbar() {
                         <li className="hover:text-blue-600 cursor-pointer">Diagnostics</li>
                       </ul>
                     </div>
-
+ 
                     <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-indigo-50 to-white shadow-md">
                       <h3 className="text-base font-semibold text-indigo-700 border-b border-indigo-100 pb-2 mb-3">
                         Education
@@ -115,7 +113,7 @@ export default function Navbar() {
                         <li className="hover:text-indigo-600 cursor-pointer">Universities</li>
                       </ul>
                     </div>
-
+ 
                     {/* other tiles... */}
                     <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-green-50 to-white shadow-md">
                       <h3 className="text-base font-semibold text-green-700 border-b border-green-100 pb-2 mb-3">
@@ -126,7 +124,7 @@ export default function Navbar() {
                         <li className="hover:text-green-600 cursor-pointer">E-Commerce</li>
                       </ul>
                     </div>
-
+ 
                     <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-orange-50 to-white shadow-md">
                       <h3 className="text-base font-semibold text-orange-700 border-b border-orange-100 pb-2 mb-3">
                         Manufacturing
@@ -136,7 +134,7 @@ export default function Navbar() {
                         <li className="hover:text-orange-600 cursor-pointer">Supply Chains</li>
                       </ul>
                     </div>
-
+ 
                     <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-purple-50 to-white shadow-md">
                       <h3 className="text-base font-semibold text-purple-700 border-b border-purple-100 pb-2 mb-3">
                         Transportation
@@ -147,7 +145,7 @@ export default function Navbar() {
                         <li className="hover:text-purple-600 cursor-pointer">Ride Sharing</li>
                       </ul>
                     </div>
-
+ 
                     <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-teal-50 to-white shadow-md">
                       <h3 className="text-base font-semibold text-teal-700 border-b border-teal-100 pb-2 mb-3">
                         Logistics
@@ -160,7 +158,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
-
+ 
                 {activeMenu === "business" && (
                   <ul className="space-y-3 text-sm text-gray-700">
                     <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Workflow Automation</li>
@@ -170,7 +168,7 @@ export default function Navbar() {
                     <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Mobile Workforce Enablement</li>
                   </ul>
                 )}
-
+ 
                 {activeMenu === "enhancements" && (
                   <ul className="space-y-3 text-sm text-gray-700">
                     <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Case Studies</li>
@@ -182,7 +180,7 @@ export default function Navbar() {
               </div>
             </div>
           </li>
-
+ 
           {/* Resources Dropdown */}
           <li className="relative">
             <button onClick={() => toggleDropdown("resources")} className="flex items-center gap-1 hover:text-indigo-600">
@@ -205,7 +203,7 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-
+ 
           {/* Company Dropdown */}
           <li className="relative">
             <button onClick={() => toggleDropdown("company")} className="flex items-center gap-1 hover:text-indigo-600">
@@ -215,11 +213,12 @@ export default function Navbar() {
               <ul className="absolute top-10 left-0 bg-white shadow-lg rounded-md w-48 py-2">
                 <li><Link href="/Whywe" className="block px-4 py-2 hover:bg-indigo-50">Why We</Link></li>
                 <li><Link href="/Aboutus" className="block px-4 py-2 hover:bg-indigo-50">About Us</Link></li>
+                <li><Link href="/leadership" className="block px-4 py-2 hover:bg-indigo-50">Leadership</Link></li>
                 <li><Link href="/culture" className="block px-4 py-2 hover:bg-indigo-50">Culture</Link></li>
               </ul>
             )}
           </li>
-
+ 
           {/* Support Dropdown */}
           <li className="relative">
             <button onClick={() => toggleDropdown("support")} className="flex items-center gap-1 hover:text-indigo-600">
@@ -232,13 +231,13 @@ export default function Navbar() {
             )}
           </li>
         </ul>
-
+ 
         {/* Mobile Hamburger */}
         <button className="md:hidden text-2xl" onClick={() => setMobileOpen((p) => !p)}>
           {mobileOpen ? <X size={28} /> : "☰"}
         </button>
       </div>
-
+ 
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
@@ -253,7 +252,7 @@ export default function Navbar() {
                 <span>Solutions</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
-
+ 
               {mobileSolutionsOpen && (
                 <div className="pl-4 mt-2 space-y-2">
                   {/* By Industry */}
@@ -266,7 +265,7 @@ export default function Navbar() {
                       <span>By Industry</span>
                       <ChevronDown className="w-4 h-4" />
                     </button>
-
+ 
                     {mobileActiveSolutions === "industry" && (
                       <ul className="pl-4 space-y-1 text-sm">
                         <li>
@@ -287,7 +286,7 @@ export default function Navbar() {
                       </ul>
                     )}
                   </div>
-
+ 
                   {/* By Business Need */}
                   <div>
                     <button
@@ -298,7 +297,7 @@ export default function Navbar() {
                       <span>By Business Need</span>
                       <ChevronDown className="w-4 h-4" />
                     </button>
-
+ 
                     {mobileActiveSolutions === "business" && (
                       <ul className="pl-4 space-y-1 text-sm">
                         <li>
@@ -319,7 +318,7 @@ export default function Navbar() {
                       </ul>
                     )}
                   </div>
-
+ 
                   {/* Additional Enhancements */}
                   <div>
                     <button
@@ -330,7 +329,7 @@ export default function Navbar() {
                       <span>Additional Enhancements</span>
                       <ChevronDown className="w-4 h-4" />
                     </button>
-
+ 
                     {mobileActiveSolutions === "enhancements" && (
                       <ul className="pl-4 space-y-1 text-sm">
                         <li>
@@ -354,7 +353,7 @@ export default function Navbar() {
                 </div>
               )}
             </li>
-
+ 
             {/* Resources */}
             <li>
               <button
@@ -389,7 +388,7 @@ export default function Navbar() {
                 </ul>
               )}
             </li>
-
+ 
             {/* Company */}
             <li>
               <button onClick={() => toggleDropdown("company")} className="flex items-center justify-between w-full py-2">
@@ -416,7 +415,7 @@ export default function Navbar() {
                 </ul>
               )}
             </li>
-
+ 
             {/* Support */}
             <li>
               <button onClick={() => toggleDropdown("support")} className="flex items-center justify-between w-full py-2">
