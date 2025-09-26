@@ -45,7 +45,9 @@ export default function ContactUsPage() {
   const [attachment, setAttachment] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
-  const [emailError, setEmailError] = useState(false);
+  const [emailError, setEmailError] = useState("");
+const [mobileError, setMobileError] = useState("");
+
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -61,7 +63,29 @@ export default function ContactUsPage() {
     } else {
       setFormData({ ...formData, [name]: value });
     }
-    if (name === "email") setEmailError(false);
+    // ✅ Email validation
+if (name === "email") {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(value)) {
+    setEmailError("Please enter a valid company email (example@domain.com)");
+  } else {
+    setEmailError("");
+  }
+}
+
+// ✅ Mobile validation
+if (name === "mobile") {
+  if (!/^\d*$/.test(value)) {
+    setMobileError("Only numbers are allowed");
+  } else if (value.length < 10) {
+    setMobileError(`Balance ${10 - value.length} digits required`);
+  } else if (value.length > 10) {
+    setMobileError("Mobile number cannot exceed 10 digits");
+  } else {
+    setMobileError("");
+  }
+};
+
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,9 +98,9 @@ export default function ContactUsPage() {
     e.preventDefault();
 
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-      setEmailError(true);
-      return;
-    }
+  setEmailError("Please enter a valid company email (example@domain.com)");
+  return;
+}
 
     if (!formData.consent) {
       alert("Please agree to the terms and privacy policy.");
@@ -166,7 +190,7 @@ export default function ContactUsPage() {
           <div className="absolute inset-0 bg-black/40"></div>
 
           {/* Card Wrapper */}
-          <div className="relative z-10 flex justify-center items-center py-8 sm:py-12">
+          <div className="relative z-10 flex justify-left items-center py-8 sm:py-12">
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-2xl">
               <h4 className="text-xl sm:text-2xl mb-6 text-center">
                 Let Us Talk
@@ -200,16 +224,21 @@ export default function ContactUsPage() {
 
                   <div className="relative">
                     <input
-                      id="mobile"
-                      type="text"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleChange}
-                      required
-                      placeholder=" "
-                      className="peer w-full px-3 pt-4 pb-2 border border-gray-300 text-sm 
-                           focus:outline-none focus:border-indigo-500"
-                    />
+  id="mobile"
+  type="text"
+  name="mobile"
+  value={formData.mobile}
+  onChange={handleChange}
+  required
+  placeholder=" "
+  className={`peer w-full px-3 pt-4 pb-2 border text-sm focus:outline-none focus:border-indigo-500 ${
+    mobileError ? "border-red-500" : "border-gray-300"
+  }`}
+/>
+{mobileError && (
+  <p className="text-xs text-red-500 mt-1">{mobileError}</p>
+)}
+
                     <label
                       htmlFor="mobile"
                       className="absolute left-3 text-gray-500 text-sm transition-all
@@ -224,30 +253,31 @@ export default function ContactUsPage() {
                 {/* Email */}
                 <div className="relative">
                   <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder=" "
-                    className={`peer w-full px-3 pt-4 pb-2 border text-sm focus:outline-none focus:border-indigo-500 ${
-                      emailError ? "border-red-500" : "border-gray-300"
-                    }`}
-                  />
-                  <label
-                    htmlFor="email"
-                    className="absolute left-3 text-gray-500 text-sm transition-all
-                      peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base
-                      peer-focus:top-0.5 peer-focus:text-xs peer-focus:text-black"
-                  >
-                    Company Email*
-                  </label>
-                  {emailError && (
-                    <p className="text-xs text-red-500 mt-1">
-                      Must be a valid email (example@domain.com)
-                    </p>
-                  )}
+  id="email"
+  type="email"
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  required
+  placeholder=" "
+  className={`peer w-full px-3 pt-4 pb-2 border text-sm focus:outline-none focus:border-indigo-500 ${
+    emailError ? "border-red-500" : "border-gray-300"
+  }`}
+/>
+<label
+  htmlFor="email"
+  className="absolute left-3 text-gray-500 text-sm transition-all
+    peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base
+    peer-focus:top-0.5 peer-focus:text-xs peer-focus:text-black"
+>
+  Company Email*
+</label>
+{emailError && (
+  <p className="text-xs text-red-500 mt-1">
+    Must be a valid email (example@domain.com)
+  </p>
+)}
+
                 </div>
 
                 {/* Company + Country */}

@@ -157,7 +157,11 @@ export default function Navbar() {
  
                 {activeMenu === "enhancements" && (
                   <ul className="space-y-3 text-sm text-gray-700">
-                    <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Case Studies</li>
+                    <li>
+              <Link href="/casestudy" className="px-3  py-2 rounded-md hover:bg-gray-50 shadow-sm">
+                Casestudies
+              </Link>
+            </li>
                     <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Customer Testimonials</li>
                     <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Demo Videos</li>
                     <li className="px-3 py-2 rounded-md hover:bg-gray-50 shadow-sm">Request Demo</li>

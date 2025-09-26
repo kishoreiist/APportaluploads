@@ -139,10 +139,19 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li>
               <Link href="/Aboutus" className="hover:text-blue-600">
-                About
+                Aboutus
               </Link>
             </li>
-        
+            <li>
+              <Link href="/Whywe" className="hover:text-blue-600">
+                Why We
+              </Link>
+            </li>
+            <li>
+              <Link href="/culture" className="hover:text-blue-600">
+                Culture
+              </Link>
+            </li>
             <li>
               <Link href="/leadership" className="hover:text-blue-600">
                 Leadership
