@@ -13,7 +13,7 @@ const outfitSans = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "APPortal uploads",
+  title: "APPortaluploads",
   description: "Apportal Uploads - Your trusted upload and tracking platform",
   icons: {
     icon: [{ url: "/apportal.svg", type: "image/svg+xml" }],

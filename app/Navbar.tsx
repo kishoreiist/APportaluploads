@@ -92,6 +92,34 @@ export default function Navbar() {
               <div className="min-w-[500px] p-6">
                 {activeMenu === "industry" && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-orange-50 to-white shadow-md">
+                      <h3 className="text-base font-semibold text-orange-700 border-b border-orange-100 pb-2 mb-3">
+                        Manufacturing
+                      </h3>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
+                        <li className="hover:text-orange-600 cursor-pointer">Factories</li>
+                        <li className="hover:text-orange-600 cursor-pointer">Supply Chains</li>
+                      </ul>
+                    </div>
+                    <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-purple-50 to-white shadow-md">
+                      <h3 className="text-base font-semibold text-purple-700 border-b border-purple-100 pb-2 mb-3">
+                        Transportation & Logistics
+                      </h3>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
+                        <li className="hover:text-purple-600 cursor-pointer">Freight & Global Shipping</li>
+                        <li className="hover:text-purple-600 cursor-pointer">Warehouse & Inventory</li>
+                      </ul>
+                    </div>
+                      <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-green-50 to-white shadow-md">
+                      <h3 className="text-base font-semibold text-green-700 border-b border-green-100 pb-2 mb-3">
+                        Retail
+                      </h3>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
+                        <li className="hover:text-green-600 cursor-pointer">Stores</li>
+                        <li className="hover:text-green-600 cursor-pointer">E-Commerce</li>
+                      </ul>
+                    </div>
+
                     <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-blue-50 to-white shadow-md">
                       <h3 className="text-base font-semibold text-blue-700 border-b border-blue-100 pb-2 mb-3">
                         Healthcare
@@ -113,49 +141,7 @@ export default function Navbar() {
                         <li className="hover:text-indigo-600 cursor-pointer">Universities</li>
                       </ul>
                     </div>
- 
-                    {/* other tiles... */}
-                    <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-green-50 to-white shadow-md">
-                      <h3 className="text-base font-semibold text-green-700 border-b border-green-100 pb-2 mb-3">
-                        Retail
-                      </h3>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
-                        <li className="hover:text-green-600 cursor-pointer">Stores</li>
-                        <li className="hover:text-green-600 cursor-pointer">E-Commerce</li>
-                      </ul>
-                    </div>
- 
-                    <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-orange-50 to-white shadow-md">
-                      <h3 className="text-base font-semibold text-orange-700 border-b border-orange-100 pb-2 mb-3">
-                        Manufacturing
-                      </h3>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
-                        <li className="hover:text-orange-600 cursor-pointer">Factories</li>
-                        <li className="hover:text-orange-600 cursor-pointer">Supply Chains</li>
-                      </ul>
-                    </div>
- 
-                    <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-purple-50 to-white shadow-md">
-                      <h3 className="text-base font-semibold text-purple-700 border-b border-purple-100 pb-2 mb-3">
-                        Transportation
-                      </h3>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
-                        <li className="hover:text-purple-600 cursor-pointer">Public Transit</li>
-                        <li className="hover:text-purple-600 cursor-pointer">Freight</li>
-                        <li className="hover:text-purple-600 cursor-pointer">Ride Sharing</li>
-                      </ul>
-                    </div>
- 
-                    <div className="px-6 py-5 rounded-xl bg-gradient-to-r from-teal-50 to-white shadow-md">
-                      <h3 className="text-base font-semibold text-teal-700 border-b border-teal-100 pb-2 mb-3">
-                        Logistics
-                      </h3>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm leading-relaxed">
-                        <li className="hover:text-teal-600 cursor-pointer">Warehousing</li>
-                        <li className="hover:text-teal-600 cursor-pointer">Last-Mile Delivery</li>
-                        <li className="hover:text-teal-600 cursor-pointer">Global Shipping</li>
-                      </ul>
-                    </div>
+
                   </div>
                 )}
  
