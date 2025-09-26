@@ -276,7 +276,7 @@ export default function LeadershipPage() {
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-12">
           <div className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl shadow-2xl flex items-center justify-center">
             <img
-              src="/leadership1.jpg"
+              src="/leadershipimg.png"
               alt="Leadership Team Banner"
               className="min-w-full min-h-full object-cover rounded-xl"
             />
