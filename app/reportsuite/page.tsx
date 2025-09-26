@@ -578,20 +578,25 @@ return (
     <Navbar />
 
     {/* Hero Section */}
-    <section className="invoice-hero py-16 px-6">
-      <div className="container max-w-7xl mx-auto flex flex-col items-center gap-12">
-        {/* Hero Image - adjusted height classes for better mobile viewing */}
-        <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl shadow-2xl">
-          <Image
-            src="/report.png"
-            alt="Dashboard Preview"
-            fill
-            className="object-cover rounded-xl shadow-2xl"
-            priority
-          />
-        </div>
-      </div>
-    </section>
+ 
+   
+     <section className="py-10 sm:py-16 px-4 sm:px-6">
+            <div className="max-w-7xl mx-auto">
+              <div className="relative w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[500px] overflow-hidden rounded-xl shadow-2xl">
+                <Image
+                  src="/report.png"
+                  alt="Dashboard Preview"
+                  fill
+                  className="object-cover rounded-xl"
+                  priority
+                  sizes="(max-width: 768px) 100vw,
+                         (max-width: 1200px) 80vw,
+                         1200px"
+                />
+              </div>
+            </div>
+          </section>
+    
 
     {/* Heading */}
     <div className="container max-w-7xl mx-auto px-6 text-center mb-8">
