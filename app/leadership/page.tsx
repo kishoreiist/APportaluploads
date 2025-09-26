@@ -334,7 +334,7 @@ export default function LeadershipPage() {
                   height={180}
                   className="object-cover rounded-full"
                 />
-              </div>
+              </div> 
               <h3 className="text-lg font-bold">{leader.name}</h3>
               <p className="text-sm text-gray-600">{leader.role}</p>
 
